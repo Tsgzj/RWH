@@ -1,0 +1,72 @@
+#+TITLE: Chapter 1: Getting Started
+#+OPTIONS: author:nil date:nil
+
+* Haskell Environment and my settings
+=Haskell= is a compiled language but it can also run in a interactive fashion:
+
+- =ghc= is the haskell compiler
+- =ghci= is the interactive interpreter
+- =rungh= can run haskell progrom without compiling then, thus as a script
+
+Enter my custom settings here:
+
+- I use =emacs=, specifically [[http://spacemacs.org/][=spacemacs=]] as editor/ide. The =haskell-mode= major mode is provided out of the box.
+- I also use [[https://orgmode.org/][=org-mode=]] for this specific project since I just picked up the [[https://orgmode.org/worg/org-contrib/babel/][=babel=]] to try out the literate programming
+- =haskell= itself provides native support for literate programming but since I'm more familiar with =emacs=...
+
+** =Babel= practise
+
+Here is a piece of code:
+
+#+BEGIN_SRC haskell
+1 + 1
+#+END_SRC
+
+Note that once exported the code will be rendered with correct style.
+
+I can also excute the code with =C-c C-c= (control-c control-c):
+#+BEGIN_SRC haskell :exports results
+1 + 1
+#+END_SRC
+
+#+RESULTS:
+: 2
+
+The code block can be exported to a separate file using =:tangle= hearder argument, as shown in the following code
+#+BEGIN_SRC haskell :tangle ch1-1.hs
+  ----------------------------------------------------------------
+  -- this is just a demostration of the org-mode and the babel  --
+  -- the source code contains nothing but four lines of comments --
+  ----------------------------------------------------------------
+#+END_SRC
+
+Using =C-c '= will fire up a separate window in the =haskell-mode= instead of =org-mode= thus easier for editing a huge chunk of codes.
+
+* Basic interaction
+** Boolean logic, operations and value comparison
+=haskell= does *not* consider 0 as =false=, nor does it treat non-zero as =true=.
+#+BEGIN_SRC haskell :exports both
+-- the following code will show error in intepretor
+-- in reality, it should not even compile
+True && 1
+#+END_SRC
+
+#+RESULTS:
+: <interactive>:7:9: error:
+:     • No instance for (Num Bool) arising from the literal ‘1’
+:     • In the second argument of ‘(&&)’, namely ‘1’
+:       In the expression: True && 1
+:       In an equation for ‘it’: it = True && 1
+
+It also worth mentioning that =haskell= has slightly different syntax as other languages, naming
+  1. Instead of =!= for logical negation, =haskell= uses =not= (straight forward)
+  2. The not equal notation is =/==
+
+#+BEGIN_SRC haskell :exports none
+-- I wonder if "not =" can be used as "/="
+2 not = 3
+#+END_SRC
+
+#+RESULTS:
+: <interactive>:42:1-5: error: Parse error in pattern: 2
+: hmm does not seem so
