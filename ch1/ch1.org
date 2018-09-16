@@ -33,12 +33,14 @@ I can also excute the code with =C-c C-c= (control-c control-c):
 : 2
 
 The code block can be exported to a separate file using =:tangle= hearder argument, as shown in the following code
-#+BEGIN_SRC haskell :tangle ch1-1.hs
+#+BEGIN_SRC haskell :tangle ch1_1.hs :results output
   ----------------------------------------------------------------
   -- this is just a demostration of the org-mode and the babel  --
   -- the source code contains nothing but four lines of comments --
   ----------------------------------------------------------------
 #+END_SRC
+
+#+RESULTS:
 
 Using =C-c '= will fire up a separate window in the =haskell-mode= instead of =org-mode= thus easier for editing a huge chunk of codes.
 
@@ -70,3 +72,4 @@ It also worth mentioning that =haskell= has slightly different syntax as other l
 #+RESULTS:
 : <interactive>:42:1-5: error: Parse error in pattern: 2
 : hmm does not seem so
+** Lists
