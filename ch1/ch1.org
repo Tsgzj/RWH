@@ -72,4 +72,23 @@ It also worth mentioning that =haskell= has slightly different syntax as other l
 #+RESULTS:
 : <interactive>:42:1-5: error: Parse error in pattern: 2
 : hmm does not seem so
+
+** Operatior Precedence and Associativity
+The procedence levels of opearators can be inspected with the =ghci='s =:info= command
+
+#+BEGIN_SRC haskell :exports both
+:info (+)
+#+END_SRC
+
+#+RESULTS:
+: Prelude> class Num a where
+:   (+) :: a -> a -> a
+:   ...
+:   	-- Defined in ‘GHC.Num’
+: infixl 6 +
+
+The precedence values range from 1 to 9. Higher precedence level operator will be applied before.
+
+Adding parentheses is a better way to avoid messing around.
+
 ** Lists
