@@ -92,3 +92,57 @@ The precedence values range from 1 to 9. Higher precedence level operator will b
 Adding parentheses is a better way to avoid messing around.
 
 ** Lists
+Elements of a list *must* be of the same type, not the same as =lisp= and its dialect.
+
+The list is a *closed* *interval*
+
+#+BEGIN_SRC haskell :export both
+[1..10]
+#+END_SRC
+
+#+RESULTS:
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+
+The =..= support specific step by providing first two elements:
+
+#+BEGIN_SRC haskell :export both
+[1,4..20]
+#+END_SRC
+
+#+RESULTS:
+| 1 | 4 | 7 | 10 | 13 | 16 | 19 |
+
+But how about we provide first three or four elements?
+
+#+BEGIN_SRC haskell :export both
+[1,2,4..20]
+#+END_SRC
+
+#+RESULTS:
+: <interactive>:14:7-8: error: parse error on input ‘..’
+
+So seems like it won't work in this case.
+
+The infinity list is also supported
+
+#+BEGIN_SRC haskell :export both
+take 5 [1..]
+#+END_SRC
+
+#+RESULTS:
+| 1 | 2 | 3 | 4 | 5 |
+
+How about infinity list with step?
+#+BEGIN_SRC haskell :export both
+take 5 [19,17..]
+#+END_SRC
+
+#+RESULTS:
+| 19 | 17 | 15 | 13 | 11 |
+
+Finally, enumerating floating-point numbers is little bit bizarre. Better avoid it unless I'm clearly aware.
+
+=:= can be used to add an element to the front of the list and it's pronounced as =cons= :) And it totally makes sense now why the first argument should be an element.
+
+String is also a list, it's a list of single characters.
+** Types
