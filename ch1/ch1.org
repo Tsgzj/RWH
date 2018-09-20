@@ -146,3 +146,20 @@ Finally, enumerating floating-point numbers is little bit bizarre. Better avoid 
 
 String is also a list, it's a list of single characters.
 ** Types
+
+We can use =:set +t= to modify the output to include the type information.
+
+More useful information will be available in Chap 6.
+
+* Exercises
+- Modify the ~WC.hs~ example to count the number of words in the file.
+#+BEGIN_SRC haskell :tangle ex3.hs
+  main = interact wordCount
+      where wordCount input = show (length (words input)) ++ "\n"
+#+END_SRC
+
+- Modify the example again to count the number of characters
+#+BEGIN_SRC haskell :tangle ex4.hs
+  main = interact wordCount
+      where wordCount input = show (length input) ++ "\n"
+#+END_SRC
