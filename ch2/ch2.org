@@ -1,2 +1,12 @@
 #+TITLE: Chapter 2: Types and Functions
 #+OPTIONS: author:nil date:nil
+
+* Why types?
+
+- Gives an abstraction and prevent accidentally mixing up types.
+- Hides low-level details of implementation.
+- Haskell has *strong* *static* and *inferred* type system.
+- *Stong* means that haskell will not automatically cast the type in any situation.
+- Type check is done during compiling so hardly no type error during runtime.
+
+* Basic Types
